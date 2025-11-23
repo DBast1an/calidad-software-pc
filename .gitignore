@@ -1,0 +1,14 @@
+# Archivos de NetBeans
+/nbproject/
+/nbactions.xml
+/jfxproject
+/bin
+
+# Carpetas y Archivos Generados de Maven
+/target/
+*.log
+*.class
+*.jar
+*.war
+*.ear
+/jacoco.exec
