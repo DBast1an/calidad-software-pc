@@ -59,4 +59,20 @@ public class InventoryManagerTest {
                 }
         );
     }
+    
+    // Para cubrir el fallo por nombre demasiado corto (Línea 20)
+@Test
+public void testNombreDemasiadoCorto() {
+    // Asumiendo que el mínimo es 2, "A" falla.
+    assertThrows(IllegalArgumentException.class, () -> 
+        manager.addItem("A", 5)); 
+}
+
+// Para cubrir el fallo por nombre que excede el máximo (Línea 20)
+@Test
+public void testNombreExcedeMaximo() {
+    String longName = "a".repeat(51); // Asumiendo que el máximo es 50
+    assertThrows(IllegalArgumentException.class, () -> 
+        manager.addItem(longName, 10)); 
+}
 }

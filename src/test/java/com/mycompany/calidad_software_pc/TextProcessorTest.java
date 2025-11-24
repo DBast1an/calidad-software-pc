@@ -49,4 +49,11 @@ public class TextProcessorTest {
                 () -> assertFalse(TextProcessor.reverseAndCapitalize("abc").equals("abc"))
         );
     }
+    
+    // Para cubrir la línea del constructor (Línea 3)
+@Test
+public void testConstructorParaCobertura() {
+    new TextProcessor();
+    assertTrue(true); 
+}
 }

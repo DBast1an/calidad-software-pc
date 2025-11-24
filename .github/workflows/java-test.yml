@@ -11,23 +11,23 @@ jobs:
     runs-on: ubuntu-latest # Ejecutar en una máquina virtual Linux
 
     steps:
-    - name: 📥 Clonar el Código
+    - name: Clonar el Código
       uses: actions/checkout@v4
       
-    - name: ⚙️ Configurar Java JDK 17
+    - name: Configurar Java JDK 17
       uses: actions/setup-java@v4
       with:
         java-version: '17'
         distribution: 'temurin'
         cache: maven 
 
-    - name: 🧪 Ejecutar Pruebas y Generar Reporte JaCoCo
+    - name: Ejecutar Pruebas y Generar Reporte JaCoCo
       # El comando 'mvn package' fuerza la generacion del reporte JaCoCo en target/site/jacoco/
       run: |
         mvn test
         mvn package
         
-    - name: 📜 Subir el Reporte HTML como Artefacto
+    - name: Subir el Reporte HTML como Artefacto
       # Esto crea el archivo ZIP descargable que necesitas
       uses: actions/upload-artifact@v4
       with:

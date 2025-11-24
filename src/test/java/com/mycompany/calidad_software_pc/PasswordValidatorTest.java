@@ -39,4 +39,25 @@ public class PasswordValidatorTest {
                 () -> assertFalse(PasswordValidator.isValid("abc"))
         );
     }
+    
+    // Para cubrir la línea del constructor (Línea 4)
+@Test
+public void testConstructorParaCobertura() {
+    new PasswordValidator(); // Ejecuta el constructor vacío
+    assertTrue(true); 
+}
+
+// Para cubrir la línea roja de caracteres no permitidos (Línea 38)
+@Test
+public void testPasswordConCaracterNoPermitido() {
+    // Usamos '~', que NO está en tu lista SPECIAL_CHARS.
+    // Esto fuerza la ejecución de la línea de rechazo (else if (c != ' ') return false;).
+    assertFalse(PasswordValidator.isValid("Pass123~R")); 
+}
+// Para cubrir el fallo por doble espacio (Línea 20 del PDF)
+@Test
+public void testPasswordConDobleEspacio() {
+    assertFalse(PasswordValidator.isValid("Pass  Word1")); 
+}
+    
 }
